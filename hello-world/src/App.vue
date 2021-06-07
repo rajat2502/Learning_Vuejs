@@ -26,6 +26,25 @@
       soldOut: isSoldOut,
     }"
   ></h2>
+
+  <!-- Binding styles -->
+  <h2
+    v-bind:style="{
+      color: highlightColor,
+      'font-size': headerSize + 'px',
+      fontWeight: 'bold',
+      padding: '20px',
+    }"
+  >
+    Inline Style
+  </h2>
+  <h2 v-bind:style="headerStyleObject">Inline style with object</h2>
+  <div v-bind:style="[baseStyleObject, successStyleObject]">
+    Inline Styles - Array syntax
+  </div>
+  <div v-bind:style="[baseStyleObject, dangerStyleObject]">
+    Inline Styles - Array syntax
+  </div>
 </template>
 
 <script>
@@ -41,6 +60,28 @@ export default {
       status: 'danger',
       isPromoted: false,
       isSoldOut: true,
+      highlightColor: 'orange',
+      headerSize: '50',
+      headerStyleObject: {
+        color: 'orange',
+        fontSize: '50px',
+        padding: '20px',
+      },
+      baseStyleObject: {
+        fontSize: '50px',
+        padding: '10px',
+      },
+      successStyleObject: {
+        color: 'green',
+        backgroundColor: 'lightGreen',
+        border: '1px solid green',
+        padding: '20px',
+      },
+      dangerStyleObject: {
+        color: 'darked',
+        backgroundColor: 'red',
+        border: '1px solid darked',
+      },
     };
   },
 };
