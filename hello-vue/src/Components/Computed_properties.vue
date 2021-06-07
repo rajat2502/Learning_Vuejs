@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  name: 'App',
+  name: 'Computed_Properties',
   data() {
     return {
       firstName: 'Rajat',
