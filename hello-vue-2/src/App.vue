@@ -1,50 +1,32 @@
 <template>
-  <!-- <Greet name="Rajat" heroName="Batman" />
-  <Greet name="Diana" heroName="Spiderman" />
-  <Greet :name="name" :heroName="heroName" /> -->
+  <Card></Card>
+  <Card><h2>Card Content</h2></Card>
+  <Card>Card Content</Card>
+  <Card>
+    <template v-slot:header>
+      <h3>Header</h3>
+    </template>
 
-  <!-- <Article id="my-article" title="Hello World" :likes="50" :published="true" /> -->
+    <template v-slot:default>
+      <h3>Card content</h3>
+    </template>
 
-  <!-- <h2>App component {{ name }}</h2>
-  <ComponentC /> -->
-
-  <!-- <button @click="showPopup = true" :disabled="showPopup">Show Popup</button>
-  <Popup v-if="showPopup" @closePopup="closePopup" /> -->
-
-  <Input v-model="name" />
+    <template v-slot:footer>
+      <h3>Footer</h3>
+    </template>
+  </Card>
 </template>
 
 <script>
-// import Greet from './components/Greet.vue';
-// import Article from './components/Article.vue';
-// import ComponentC from './components/ComponentC.vue';
-// import Popup from './components/Popup.vue';
-import Input from './components/Input.vue';
+import Card from './components/Card.vue';
 
 export default {
   name: 'App',
   data() {
-    return {
-      name: 'Rajat',
-      heroName: 'Motu',
-      showPopup: false,
-    };
+    return {};
   },
-  methods: {
-    // closePopup(name) {
-    //   console.log(name);
-    //   this.showPopup = false;
-    // },
-  },
-  // provide() {
-  //   return { username: this.name };
-  // },
-  components: { Input },
-  watch: {
-    name(newValue) {
-      console.log(newValue);
-    },
-  },
+  methods: {},
+  components: { Card },
 };
 </script>
 
