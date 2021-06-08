@@ -8,35 +8,43 @@
   <!-- <h2>App component {{ name }}</h2>
   <ComponentC /> -->
 
-  <button @click="showPopup = true" :disabled="showPopup">Show Popup</button>
-  <Popup v-if="showPopup" @closePopup="closePopup" />
+  <!-- <button @click="showPopup = true" :disabled="showPopup">Show Popup</button>
+  <Popup v-if="showPopup" @closePopup="closePopup" /> -->
+
+  <Input v-model="name" />
 </template>
 
 <script>
 // import Greet from './components/Greet.vue';
 // import Article from './components/Article.vue';
 // import ComponentC from './components/ComponentC.vue';
-import Popup from './components/Popup.vue';
+// import Popup from './components/Popup.vue';
+import Input from './components/Input.vue';
 
 export default {
   name: 'App',
   data() {
     return {
-      name: 'Keshav',
+      name: 'Rajat',
       heroName: 'Motu',
       showPopup: false,
     };
   },
   methods: {
-    closePopup(name) {
-      console.log(name);
-      this.showPopup = false;
+    // closePopup(name) {
+    //   console.log(name);
+    //   this.showPopup = false;
+    // },
+  },
+  // provide() {
+  //   return { username: this.name };
+  // },
+  components: { Input },
+  watch: {
+    name(newValue) {
+      console.log(newValue);
     },
   },
-  provide() {
-    return { username: this.name };
-  },
-  components: { Popup },
 };
 </script>
 
