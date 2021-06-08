@@ -3,12 +3,15 @@
   <Greet name="Diana" heroName="Spiderman" />
   <Greet :name="name" :heroName="heroName" /> -->
 
-  <Article title="Hello World" :likes="50" :published="true" />
+  <!-- <Article id="my-article" title="Hello World" :likes="50" :published="true" /> -->
+  <h2>App component {{ name }}</h2>
+  <ComponentC />
 </template>
 
 <script>
 // import Greet from './components/Greet.vue';
-import Article from './components/Article.vue';
+// import Article from './components/Article.vue';
+import ComponentC from './components/ComponentC.vue';
 
 export default {
   name: 'App',
@@ -18,7 +21,10 @@ export default {
       heroName: 'Motu',
     };
   },
-  components: { Article },
+  provide() {
+    return { username: this.name };
+  },
+  components: { ComponentC },
 };
 </script>
 
