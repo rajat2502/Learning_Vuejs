@@ -1,24 +1,25 @@
 <template>
-  <Card></Card>
-  <Card><h2>Card Content</h2></Card>
-  <Card>Card Content</Card>
-  <Card>
-    <template v-slot:header>
-      <h3>Header</h3>
-    </template>
+  <NameList
+    ><template v-slot:default="slotProps">{{
+      slotProps.firstName
+    }}</template></NameList
+  >
 
-    <template v-slot:default>
-      <h3>Card content</h3>
-    </template>
+  <NameList
+    ><template v-slot:default="slotProps"
+      >{{ slotProps.firstName }} {{ slotProps.lastName }}</template
+    ></NameList
+  >
 
-    <template v-slot:footer>
-      <h3>Footer</h3>
-    </template>
-  </Card>
+  <NameList
+    ><template v-slot:default="slotProps"
+      >{{ slotProps.lastName }} {{ slotProps.firstName }}</template
+    ></NameList
+  >
 </template>
 
 <script>
-import Card from './components/Card.vue';
+import NameList from './components/NameList.vue';
 
 export default {
   name: 'App',
@@ -26,7 +27,7 @@ export default {
     return {};
   },
   methods: {},
-  components: { Card },
+  components: { NameList },
 };
 </script>
 
